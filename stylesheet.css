@@ -1,9 +1,10 @@
 /* Global styles */
 body {
     font-family: 'Arial', sans-serif; 
-    background-color: #fafafa;
+    background-color: #f0f5f9; /* A lighter shade of blue as the background for better contrast */
 }
 
+/* Resetting styles for all unordered list items */
 li {
     list-style-type: none;
     list-style: none;
@@ -13,29 +14,25 @@ li {
     max-width: 400px; 
     margin-left: auto;
     margin-right: auto;
-
-}
-
-/* Styling for each list item */
-li {
-    background-color: rgba(255, 239, 213, 0.7); /* Light peach background */
-    border: 3px solid #FFD700; /* Golden border */
-    padding: 15px 20px; 
-    margin-bottom: 15px; 
-    border-radius: 8px; 
+    background-color: rgba(255, 239, 213, 0.8); /* Light peach background */
+    border: 2px solid #ffa726; /* Orange border */
+    padding: 10px 15px; 
+    margin-bottom: 10px; 
+    border-radius: 5px; 
     position: relative; 
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); 
-    transition: transform 0.3s, box-shadow 0.3s; 
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.2s, box-shadow 0.2s; 
 }
 
 li:nth-child(odd) {
-    background-color: rgba(173, 216, 230, 0.7); /* Light blue background for alternate items */
+    background-color: rgba(100, 149, 237, 0.7); /* Cornflower blue background for alternate items */
+    border-color: #6495ED; /* Darker shade for the border of the odd items */
 }
 
 li:hover {
-    background-color: #FFFACD; /* Lemon chiffon color on hover */
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08); 
-    transform: translateY(-5px);
+    background-color: #ffe0b2; /* A light orange shade on hover */
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.15); 
+    transform: translateY(-3px); /* Slight upward motion on hover for a dynamic feel */
 }
 
 /* Hide potential browser-specific bullets */

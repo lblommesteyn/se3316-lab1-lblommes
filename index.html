@@ -5,13 +5,284 @@
 <title>SE 3316 Lab 1</title>
 <meta name="description" content="">
 <meta name="author" content="">
-<link rel="stylesheet" href="">
+<link rel="stylesheet" type = "text/css" href="stylesheet.css">
+<!-- Embedded JavaScript go here -->
 </head>
 <body>
 <!-- Place your content here -->
-<h1>SE 3316 Lab 1</h1>
-<p>Hello World!</p>
+<script src="script.js"></script>
 
-<!-- Embedded JavaScript go here -->
+<header>
+    <h1>SE 3316 Lab 1</h1>
+    
+    <!--list of the search boxes and buttons with even handlers that will handle the search when clicked on when enter is pressed-->
+    <input type="text" id="searchByName" onkeydown="handleEnter(event, filterCountriesByName)" placeholder="Search by country name" title="Type in a name">
+    <button type="button" onclick="filterCountriesByName()">Search by Name</button>
+    <br>
+    <input type="text" id="searchByCurrency" onkeydown="handleEnter(event, filterCountriesByCurrency)" placeholder="Search by currency code" title="Type in a code">
+    <button type="button" onclick="filterCountriesByCurrency()">Search by Currency</button>
+    <div id="popup" class="popup" style="display: none;"></div>
+
+
+</header>
+
+<!--start of country list with 20 different countries-->
+<!--includes the country name, currency, regions and wiki link -->
+<ul id = "countryList">
+
+<li>
+    <div>
+        <img src = "flags/al.png">
+        <h2>Albania</h2>
+        <p>Currency : Lek (AL)</p>
+        <p>Regions : Berat, Diber, Durres, Elbasan, Fier, Gjirokaster, Korce, Kukes, Lezhe, Shkoder, Tirane, Vlore
+
+        </p>
+        <p><a href="https://en.wikipedia.org/wiki/Albania">Wikipedia Page</a></p>
+    </div>
+</li>
+
+<li>
+    <div>
+        <img src = "flags/us.png">
+        <h2>United States of America</h2>
+        <p>Currency : American Dollar (USD)</p>
+        <p>Regions : Alabama, Alaska, Arizona, Arkansas, California, Colorado, Connecticut, Delaware, District of Columbia, 
+            Florida, Georgia, Hawaii, Idaho, Illinois, Indiana, Iowa, Kansas, Kentucky, Louisiana, Maine, Maryland, Massachusetts, 
+            Michigan, Minnesota, Mississippi, Missouri, Montana, Nebraska, Nevada, New Hampshire, New Jersey, New Mexico, New York, 
+            North Carolina, North Dakota, Ohio, Oklahoma, Oregon, Pennsylvania, Rhode Island, South Carolina, South Dakota, Tennessee, Texas, 
+            Utah, Vermont, Virginia, Washington, West Virginia, Wisconsin, Wyoming.
+        </p>
+        <p><a href="https://en.wikipedia.org/wiki/United_States">Wikipedia Page</a></p>
+    </div>
+</li>
+
+<li>
+    <div>
+        <img src = "flags/by.png">
+        <h2>Belarus</h2>
+        <p>Currency : Belarus Ruble (BYR)</p>
+        <p>Regions : Brestskaya voblasts', Homyel'skaya voblasts', Horad Minsk, Hrodzyenskaya voblasts', Mahilyowskaya voblasts', Minskaya voblasts', Vitsyebskaya voblasts'
+        </p>
+        <p><a href="https://en.wikipedia.org/wiki/Belarus">Wikipedia Page</a></p>  
+    </div>
+</li>
+
+
+<li>
+    <div>
+        <img src = "flags/ar.png">
+        <h2>Argentina</h2>
+        <p>Currency : Peso (ARS)</p>
+        <p>Regions : Buenos Aires, Catamarca, Chaco, Chubut, Ciudad Autonoma de Buenos Aires, Cordoba, Corrientes, Entre Rios, Formosa, 
+            Jujuy, La Pampa, La Rioja, Mendoza, Misiones, Neuquen, Rio Negro, Salta, San Juan, San Luis, Santa Cruz, Santa Fe, Santiago del Estero, Tierra del Fuego, Tucuman
+        </p>
+        <p><a href="https://en.wikipedia.org/wiki/Argentina">Wikipedia Page</a></p>
+    </div>
+</li>
+
+<li>
+    <div>
+        <img src = "flags/fr.png">
+        <h2>France</h2>
+        <p>Currency : Euros (EUR)</p>
+        <p>Regions : Auvergne-Rhone-Alpes, Bourgogne-Franche-Comte, Bretagne, Centre-Val de Loire, Corse, Grand-Est, Hauts-de-France, Ile-de-France, 
+            Normandie, Nouvelle-Aquitaine, Occitanie, Pays-de-la-Loire, Provence-Alpes-Cote-d'Azur
+        </p>
+        <p><a href="https://en.wikipedia.org/wiki/France">Wikipedia Page</a></p>
+    </div>
+</li>
+
+
+<li>
+    <div>
+        <img src = "flags/bg.png">
+        <h2>Bulgaria</h2>
+        <p>Currency : Lev (BGN)</p>
+        <p>Regions : Blagoevgrad, Burgas, Dobrich, Gabrovo, Haskovo, Kardzhali, Kyustendil, Lovech, Montana, Pazardzhik, Pernik, Pleven, Plovdiv, 
+            Razgrad, Ruse, Shumen, Silistra, Sliven, Smolyan, Sofia, Sofia (stolitsa), Stara Zagora, Targovishte, Varna, Veliko Tarnovo, Vidin, Vratsa, Yambol
+        </p>
+        <p><a href="https://en.wikipedia.org/wiki/Bulgaria">Wikipedia Page</a></p>
+    </div>
+</li>
+
+<li>
+    <div>
+        <img src = "flags/au.png">
+        <h2>Australia</h2>
+        <p>Currency : Australian Dollars (AUD)</p>
+        <p>Regions : Australian Capital Territory, New South Wales, Northern Territory, Queensland, South Australia, Tasmania, Victoria, Western Australia
+        </p>
+        <p><a href="https://en.wikipedia.org/wiki/Australia">Wikipedia Page</a></p>
+    </div>
+</li>
+
+<li>
+    <div>
+        <img src = "flags/nz.png">
+        <h2>New Zealand</h2>
+        <p>Currency : New Zealand Dollars (NZD)</p>
+        <p>Regions : Auckland, Bay of Plenty, Canterbury, Chatham Islands Territory, Gisborne, Hawke's Bay, Manawatu-Wanganui, Marlborough, 
+            Nelson, Northland, Otago, Southland, Taranaki, Tasman, Waikato, Wellington, West Coast
+        </p>
+        <p><a href="https://en.wikipedia.org/wiki/New_Zealand">Wikipedia Page</a></p>
+    </div>
+</li>
+
+<li>
+    <div>
+        <img src = "flags/kn.png">
+        <h2>Kenya</h2>
+        <p>Currency : Kenyan Shilling (KES)</p>
+        <p>Regions : Baringo, Bomet, Bungoma, Busia, Elgeyo/Marakwet, Embu, Garissa, Homa Bay, Isiolo, Kajiado, Kakamega, Kericho, Kiambu, Kilifi, Kirinyaga, 
+            Kisii, Kisumu, Kitui, Kwale, Laikipia, Lamu, Machakos, Makueni, Mandera, Marsabit, Meru, Migori, Mombasa, Murang'a, Nairobi City, Nakuru, Nandi, 
+            Narok, Nyamira, Nyandarua, Nyeri, Samburu, Siaya, Taita/Taveta, Tana River, Tharaka-Nithi, Trans Nzoia, Turkana, Uasin Gishu, Vihiga, Wajir, West Pokot
+        </p>
+        <p><a href="https://en.wikipedia.org/wiki/Kenya">Wikipedia Page</a></p>
+    </div>
+</li>
+
+<li>
+    <div>
+        <img src = "flags/ie.png">
+        <h2>Ireland</h2>
+        <p>Currency : Euros (EUR)</p>
+        <p>Regions : Carlow, Cavan, Clare, Cork, Donegal, Dublin, Galway, Kerry, Kildare, Kilkenny, Laois, Leitrim, Limerick, Longford, Louth, Mayo, 
+            Meath, Monaghan, Offaly, Roscommon, Sligo, Tipperary, Waterford, Westmeath, Wexford
+        </p>
+        <p><a href="https://en.wikipedia.org/wiki/Ireland">Wikipedia Page</a></p>
+    </div>
+</li>
+
+<li>
+    <div>
+        <img src = "flags/it.png">
+        <h2>Italy</h2>
+        <p>Currency : Euros (EUR)</p>
+        <p>Regions : Abruzzo, Basilicata, Calabria, Campania, Emilia-Romagna, Friuli-Venezia Giulia, Lazio, Liguria, Lombardia, Marche, Molise, Piemonte, 
+            Puglia, Sardegna, Sicilia, Toscana, Trentino-Alto Adige, Umbria, Valle d'Aosta, Veneto
+        </p>
+        <p><a href="https://en.wikipedia.org/wiki/Italy">Wikipedia Page</a></p>
+    </div>
+</li>
+
+<li>
+    <div>
+        <img src = "flags/jm.png">
+        <h2>Jamaica</h2>
+        <p>Currency : Jamaican Dollar (JMD)</p>
+        <p>Regions : Clarendon, Hanover, Kingston, Manchester, Portland, Saint Andrew, Saint Ann, Saint Catherine, Saint Elizabeth, 
+            Saint James, Saint Mary, Saint Thomas, Trelawny, Westmoreland 
+        </p>
+        <p><a href="https://en.wikipedia.org/wiki/Jamaica">Wikipedia Page</a></p>
+    </div>
+</li>
+
+
+<li>
+    <div>
+        <img src = "flags/ng.png">
+        <h2>Nigeria</h2>
+        <p>Currency : Naira (NGN)</p>
+        <p>Regions : Abia, Abuja Federal Capital Territory, Adamawa, Akwa Ibom, Anambra, Bauchi, Bayelsa, Benue, Borno, Cross River, Delta, Ebonyi, Edo, Ekiti,
+            Enugu, Gombe, Imo, Jigawa, Kaduna, Kano, Katsina, Kebbi, Kogi, Kwara, Lagos, Nasarawa, Niger, Ogun, Ondo, Osun, Oyo, Plateau, Rivers, Sokoto, Taraba, Yobe, Zamfara
+        </p>
+        <p><a href="https://en.wikipedia.org/wiki/Nigeria">Wikipedia Page</a></p>
+    </div>
+</li>
+
+<li>
+    <div>
+        <img src = "flags/kr.png">
+        <h2>South Korea (Republic of Korea)</h2>
+        <p>Currency : Won (KRW)</p>
+        <p>Regions : Busan-gwangyeoksi, Chungcheongbuk-do, Chungcheongnam-do, Daegu-gwangyeoksi, Daejeon-gwangyeoksi, Gangwon-do, Gwangju-gwangyeoksi, 
+            Gyeonggi-do, Gyeongsangbuk-do, Gyeongsangnam-do, Incheon-gwangyeoksi, Jeju-teukbyeoljachido, Jeollabuk-do, Jeollanam-do, 
+            Seoul-teukbyeolsi, Ulsan-gwangyeoksi 
+        </p>
+        <p><a href="https://en.wikipedia.org/wiki/South-Korea">Wikipedia Page</a></p>
+    </div>
+</li>
+
+<li>
+    <div>
+        <img src = "flags/ca.png">
+        <h2>Canada</h2>
+        <p>Currency : Canadian Dollar (CAD)</p>
+        <p>Regions : Alberta, British Columbia, Manitoba, New Brunswick, Newfoundland and Labrador, 
+            Northwest Territories, Nova Scotia, Nunavut, Ontario, Prince Edward Island, Quebec, Saskatchewan, Yukon
+        </p>
+        <p><a href="https://en.wikipedia.org/wiki/Canada">Wikipedia Page</a></p>
+    </div>
+</li>
+
+<li>
+    <div>
+        <img src = "flags/kp.png">
+        <h2>North Korean (Democratic Republic of Korea)</h2>
+        <p>Currency : Won (KPW)</p>
+        <p>Regions : P'yongyang </p>
+        <p><a href="https://en.wikipedia.org/wiki/North-Korea">Wikipedia Page</a></p>
+    </div>
+</li>
+
+<li>
+    <div>
+        <img src = "flags/my.png">
+        <h2>Malaysia</h2>
+        <p>Currency : Ringgit (MYR)</p>
+        <p>Regions : Johor, Kedah, Kelantan, Melaka, Negeri Sembilan, Pahang, Perak, Perlis, Pulau Pinang, Sabah, Sarawak, Selangor,
+            Terengganu, Wilayah Persekutuan Kuala Lumpur, Wilayah Persekutuan Labuan, Wilayah Persekutuan Putrajaya 
+        </p>
+        <p><a href="https://en.wikipedia.org/wiki/Malaysia">Wikipedia Page</a></p>
+    </div>
+</li>
+
+
+<li>
+    <div>
+        <img src = "flags/cn.png">
+        <h2>China</h2>
+        <p>Currency : Yuan Renminbi (CNY)</p>
+        <p>Regions : Anhui, Beijing, Chongqing, Fujian, Gansu, Guangdong, Guangxi Zhuangzu, Guizhou, Hainan, Hebei, Heilongjiang, Henan, Hubei, Hunan, Jiangsu, Jiangxi, Jilin, 
+            Liaoning, Nei Mongol, Ningxia Huizu, Qinghai, Shaanxi, Shandong, Shanghai, Shanxi, Sichuan, Tianjin, Xinjiang Uygur, Xizang, Yunnan, Zhejiang
+        </p>
+        <p><a href="https://en.wikipedia.org/wiki/China">Wikipedia Page</a></p>
+    </div>
+</li>
+
+<li>
+    <div>
+        <img src = "flags/mx.png">
+        <h2>Mexico</h2>
+        <p>Currency : Peso (MXN)</p>
+        <p>Regions :Aguascalientes, Baja California, Baja California Sur, Campeche, Chiapas, Chihuahua, Ciudad de Mexico, Coahuila de Zaragoza, Colima, Durango, 
+            Guanajuato, Guerrero, Hidalgo, Jalisco, Mexico, Michoacan de Ocampo, Morelos, Nayarit, Nuevo Leon, Oaxaca, Puebla, Queretaro, Quintana Roo, San Luis Potosi, 
+            Sinaloa, Sonora, Tabasco, Tamaulipas, Tlaxcala, Veracruz de Ignacio de la Llave, Yucatan, Zacatecas 
+        </p>
+        <p><a href="https://en.wikipedia.org/wiki/Mexico">Wikipedia Page</a></p>
+    </div>
+</li>
+
+
+
+<li>
+    <div>
+        <img src = "flags/jp.png">
+        <h2>Japan</h2>
+        <p>Currency : Japanese Yen (JPY)</p>
+        <p>Regions : Aichi, Akita, Aomori, Chiba, Ehime, Fukui, Fukuoka, Fukushima, Gifu, Gunma, Hiroshima, Hokkaido, Hyogo, Ibaraki, Ishikawa, 
+            Iwate, Kagawa, Kagoshima, Kanagawa, Kochi, Kumamoto, Kyoto, Mie, Miyagi, Miyazaki, Nagano, Nagasaki, Nara, Niigata, Oita, Okayama, 
+            Okinawa, Osaka, Saga, Saitama, Shiga, Shimane, Shizuoka, Tochigi, Tokushima, Tokyo, Tottori, Toyama, Wakayama, Yamagata, Yamaguchi, Yamanashi
+        </p>
+        <p><a href="https://en.wikipedia.org/wiki/Japan">Wikipedia Page</a></p>
+    </div>
+</li>
+
+
+</ul>
+
+
+
 </body>
 </html>
